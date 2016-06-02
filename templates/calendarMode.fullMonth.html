@@ -1,0 +1,82 @@
+<div id="page_calendar_fullmonth">
+    <div class="main_container">
+        <div class="left_panel">
+            <div class="panel_header">
+                <span>Monday</span>
+                <span>Tuesday</span>
+                <span>Wednesday</span>
+                <span>Thursday</span>
+                <span>Friday</span>
+            </div>
+            <div class="calendars">
+                <div class="one_day" ng-repeat="day in fullMonth" ng-click="selectDay(day)">
+                    <span>{{ day.day }}</span>
+
+                    <div class="workhours">
+                        Workhours: {{ day.workHours }}
+                    </div>
+
+                    <div class="activity_count">
+                        Activites logged: {{ day.activties.length }}
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="right_panel">
+            <div class="day_infos">
+                <div class="panel_header">
+                    <div>Selected Date: {{ currentMonth + '-' + selectedDay.day }}
+                        Working hours: {{ selectedDay.workHours }}
+                    </div>
+                </div>
+
+                <div class="activities_of_the_day animate_me" ng-hide="!selectedDay">
+                    <div class="activity " ng-repeat="activity in selectedDay.activities">
+                        <div class="left_column">
+                            <div class="project">
+                                Project:
+                            </div>
+
+                            <div class="ticket">
+                                Ticket:
+                            </div>
+
+                            <div class="description">
+                                Description:
+                            </div>
+
+                            <div class="spent_time">
+                                Spent Time:
+                            </div>
+                        </div>
+
+                        <div class="right_column">
+                            <div class="project">
+                                {{ activity.project }}
+                            </div>
+
+                            <div class="ticket">{{ '#' + activity.ticketId + '- ' + activity.taskName }}
+                            </div>
+
+                            <div class="description">
+                                {{ activity.description }}
+                            </div>
+
+                            <div class="spent_time">
+                                {{ activity.spentTime }}
+                            </div>
+                        </div>
+                        <div class="clear"></div>
+                    </div>
+                    <div class="clear"></div>
+                </div>
+
+                <div class="no_selected" ng-show="selectedDay.length == 0">
+                    No day selected Yet!
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

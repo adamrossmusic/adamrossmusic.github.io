@@ -1,0 +1,97 @@
+<div id="page_personal" ng-controller="personalController">
+    <div class="main_wrapper container-fluid">
+        <div class="profile_panel">
+            <div class="avatar">
+                <img ng-src="images/{{ userInfo.avatarUrl }}" alt="{{ userInfo.username }}"/>
+            </div>
+            <div class="title">
+                Position: {{ userInfo.userTitle }}
+            </div>
+            <div class="work_hours">
+                Worked hours: {{ userInfo.workedHours }}
+            </div>
+
+            <div class="settings">
+                <a>Settings</a>
+            </div>
+        </div>
+
+        <div class="right_panel">
+            <div class="random_message_of_the_day">
+                <div class="title">
+                    Smile of the day:
+                </div>
+
+                <div class="message">
+                    {{ userInfo.funnyMessage }}
+                </div>
+            </div>
+            <div class="tickets_panel">
+                <div class="my_tickets">
+                    <div class="title">
+                        Tickets assigned to me
+                    </div>
+                    <div class="headers">
+                        <span class="project">Project</span>
+                        <span class="ticket">Ticket</span>
+                        <span class="description">Description</span>
+                        <span class="status">Status</span>
+                        <span class="progressbar">Progress</span>
+
+                        <div class="clear"></div>
+                    </div>
+                    <div class="tickets">
+                        <div ng-repeat="ticket in myTickets">
+                            <a ng-href="https://redmine.sonrisa.hu/issues/{{ ticket.ticketId }}" target="_blank">
+                                <div class="project">{{ ticket.project }}</div>
+                                <div class="ticket">{{ ticket.ticket }}</div>
+                                <div class="description">{{ ticket.description }}</div>
+                                <div class="status">{{ ticket.status }}</div>
+                                <div class="progressbar">
+                                    <span>
+                                           {{ ticket.progess }}
+                                    </span>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="clear"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="statistics_panel">
+            <div class="stastics_list">
+                <div><b>Tasks Done: </b> {{ userInfo.doneTasks }}</div>
+                <div><b>Avarage workhour / ticket:</b> {{ userInfo.avarageWorkhour }}</div>
+                <div><b>Estimation / Finish rate: </b>{{ userInfo.estimationRate }}</div>
+                <div><b>Projects: </b></div>
+                <ul>
+                    <li ng-repeat="project in userInfo.projects">
+                        <a ng-href="https://redmine.sonrisa.hu/projects/sontime-rebirth" target="_blank">
+                            {{ project }}
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="events_list">
+                <div class="title">
+                    <b>Your upcoming events:</b>
+                </div>
+
+                <div class="event" ng-repeat="events in myEvents | orderBy: id">
+                    <span class="date">
+                        {{ events.date + ' - ' + events.time }}
+                    </span>
+                    <span class="event_name">
+                        {{ events.name }}
+                    </span>
+
+                    <span class="project">
+                      <b>Organiser: </b>  {{ events.project }}
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

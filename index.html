@@ -1,0 +1,35 @@
+<!doctype html>
+<html ng-app="sontimeErekhron">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>Sontime Rebirth - Ferenczi Adam redesign</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <link rel="stylesheet" media="(max-width: 1024px)" href="styles/mobile.css"/>
+    <link rel="stylesheet" media="(min-width: 1024px)" href="styles/desktop.css"/>
+    <link rel="stylesheet" href="styles/font-awesome.css"/>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+</head>
+<body>
+
+<main-nav></main-nav>
+<div class="ui-view-container">
+    <div ui-view></div>
+</div>
+
+<script src="/bower_components/angular/angular.min.js"></script>
+<script src="/bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
+<script src="/bower_components/moment/moment.js"></script>
+<script src="/bower_components/angular-moment/angular-moment.js"></script>
+<script src="/bower_components/angular-animate/angular-animate.min.js"></script>
+
+<script src="/js/main.js"></script>
+<script src="/js/config/config.js"></script>
+<script src="/js/directives/mainNav.directive.js"></script>
+<script src="/js/controllers/listController.js"></script>
+<script src="/js/controllers/calendarController.js"></script>
+<script src="/js/controllers/personalController.js"></script>
+</html>
+
+

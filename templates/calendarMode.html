@@ -1,0 +1,14 @@
+<div id="page_calendar" ng-controller="calendarController">
+    <div class="main_wrapper container-fluid">
+        <div class="header">
+            <div class="date"> {{ currentMonth }}</div>
+            <div class="mode_selector">
+                <div class="btn btn-default" ui-sref="calendar.1_week">1 Week view</div>
+                <div class="btn btn-default" ui-sref="calendar.full_month">Full month view</div>
+            </div>
+        </div>
+        <div class="ui-view-container">
+            <div ui-view></div>
+        </div>
+    </div>
+</div>

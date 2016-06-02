@@ -1,0 +1,15 @@
+<nav id="page_main_nav" class="navbar navbar-default">
+    <div class="container-fluid">
+        <a class="navbar-brand" ng-href="/">
+            <img src="images/logo.svg" ui-sref="list" alt="Sontime Logo"/>
+        </a>
+        <div class="menus">
+            <a ui-sref="list" ng-class="{ current: isInState('list')}">List mode</a>
+            <a ui-sref="calendar" ng-class="{ current: isInState('calendar')}">Calendar mode</a>
+            <a ui-sref="myPage" ng-class="{ current: isInState('myPage')}">Personal page</a>
+        </div>
+        <div>
+            <a ui-sref="logout"></a>
+        </div>
+    </div>
+</nav>

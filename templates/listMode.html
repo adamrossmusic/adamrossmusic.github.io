@@ -1,0 +1,151 @@
+<div id="page_list" ng-controller="listController">
+    <div class="main_wrapper container-fluid">
+        <div class="activity_create_box">
+            <div class="day_selector">
+                <div class="current_date">
+                    {{ selectedDate }}
+                </div>
+                <div class="days">
+                    <button class="btn btn-success" ng-repeat="day in days" ng-click="selectDate(day.val)">
+                        {{ day.code | uppercase }}
+                    </button>
+                </div>
+            </div>
+
+            <div class="project_list">
+                <span class="title">
+                    Your Projects
+                </span>
+
+                <div class="projects">
+                    <button class="btn btn-default" ng-repeat="project in projects | orderBy: 'name'"
+                            ng-click="setProject(project)"
+                            ng-class="{ active : project.id == selectedProject.id }">
+                        {{ project.name }}
+                    </button>
+                </div>
+            </div>
+
+            <div class="activity_form">
+                <form name="createForm" role="form">
+                    <span class="title">Ticket search</span>
+                    <input type="text" class="autocomplete_input"
+                           ng-model="formData.task.ticketName"
+                           placeholder="Search for a ticket"
+                           value="{{ formData.task.ticketName }}"/>
+
+
+                    <div class="auto_complete_result" ng-show="isProjectSelected">
+                        <span>
+                            Recents tickets:
+                        </span>
+
+                        <div class="recents" ng-repeat="task in tasks | limitTo: 3" ng-click="selectRecent(task)">
+                            {{ '#' + task.ticketId + ' - ' + task.name }}
+                        </div>
+                    </div>
+
+                    <div class="auto_complete_result_mobile" ng-show="isProjectSelected">
+                        <input type="text" ng-model="taskSearch" placeholder="Search for specific ticket"/>
+                        <span>
+                           Select a task
+                        </span>
+
+                        <div class="recents" ng-repeat="task in tasks | limitTo: taskLimit | filter: taskSearch" ng-click="selectRecent(task)">
+                            {{ '#' + task.ticketId + ' - ' + task.name }}
+                        </div>
+
+                        <a class="show_more" ng-click="showMoreTask()" ng-hide="Object.keys(tasks).length < taskLimit">Show more</a>
+
+                    </div>
+                </form>
+            </div>
+            <div class="hours_and_save_btn">
+                <span class="title">
+                    Select Duration
+                </span>
+
+                <div class="duration_selector">
+                    <div class="duration_display" ng-click="startDurationSelect()">
+                        {{ durationHours + ':' + durationMinutes }}
+                    </div>
+                    <div class="hours_selector" ng-if="isInSelectHourMode">
+                        <div class="hours btn btn-default" ng-repeat="i in [1,2,3,4,5,6,7,8,9,10,11,12]"
+                             ng-click="setDurationHour(i)">
+                            {{ i }}
+                        </div>
+                    </div>
+                    <div class="minutes_selector" ng-if="isInSelectMinutesMode">
+                        <div class="minutes btn btn-default" ng-repeat="j in [0, 15, 30, 45]"
+                             ng-click="setDurationMinute(j)">
+                            {{ j }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="savebutton">
+                <button class="btn btn-primary" ng-click="saveActivity()">
+                    Save actvitiy
+                </button>
+            </div>
+        </div>
+
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <table class="table table-striped table-bordered table-hover">
+                    <thead>
+                    <tr>
+                        <th>Task ID</th>
+                        <th>Project</th>
+                        <th>Task name</th>
+                        <th>Duration</th>
+                        <th>Description</th>
+                        <th>Actions</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr ng-repeat="activity in activities">
+                        <td>{{activity.task.ticketId}}</td>
+                        <td>{{activity.project.name}}</td>
+                        <td>{{activity.task.name}}</td>
+                        <td>{{activity.duration}}</td>
+                        <td>{{activity.description}}</td>
+                        <td class="actions-column">
+                            <div class="delete_tooltip" ng-show="selectedIndex == $index && isInDeleteMode">
+                                <div class="title">Are you sure?</div>
+                                <div class="action">
+                                    <i class="fa fa-check-circle-o" aria-hidden="true"
+                                       ng-click="deleteItem(activity)"></i>
+                                    <i class="fa fa-times" aria-hidden="true" ng-click="closeDelete()"></i>
+                                </div>
+                            </div>
+                            <i class="fa fa-pencil-square-o activity-modify-icon"
+                               aria-hidden="true"
+                               ng-class=""
+                               ng-click="">
+                            </i>
+                            <i class="fa fa-trash activity-delete-icon" aria-hidden="true"
+                               ng-click="beginDelete(activity, $index)"></i>
+                        </td>
+                    </tr>
+                    <tr ng-if="vm.activities.length === 0">
+                        <td colspan="5" class="text-center">There isn&apos;t any recorded activity for this day
+                            yet!
+                        </td>
+                    </tr>
+                    </tbody>
+                    <tfoot>
+                    <tr class="warning">
+                        <td></td>
+                        <td><strong>SUM</strong></td>
+                        <td></td>
+                        <td><strong>{{getSumOfDuration()}}</strong></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    </tfoot>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

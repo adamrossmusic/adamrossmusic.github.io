@@ -1,0 +1,52 @@
+<div id="page_calendar_oneweek">
+    <div class="main_container">
+        <div class="panel_header">
+            <span>Monday</span>
+            <span>Tuesday</span>
+            <span>Wednesday</span>
+            <span>Thursday</span>
+            <span>Friday</span>
+        </div>
+
+        <div class="activities">
+            <div class="columns" ng-repeat="workday in oneWeek">
+                <div class="column_header">
+                    <div class="day">
+                        {{ workday.day }}
+                    </div>
+                    <div class="hours">
+                        <span>Working hours: {{ workday.workingHours }}</span>
+                        <span>Non-working hours: {{ workday.nonWorkingHours }}</span>
+                    </div>
+                </div>
+
+                <div class="today_column">
+                    <div class="activity" ng-repeat="activity in workday.activities">
+
+                        <div class="index">
+                            {{ $index + '.' }}
+                        </div>
+
+                        <div class="details">
+                            <div class="project">
+                                {{ activity.project }}
+                            </div>
+
+                            <div class="task">
+                                {{ '#' + activity.ticketId + ' ' + activity.taskName }}
+                            </div>
+
+                            <div class="spent_time">
+                                {{ 'Spent time:     ' + activity.spentTime }}
+                            </div>
+
+                            <div class="description">
+                                {{ activity.description }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
