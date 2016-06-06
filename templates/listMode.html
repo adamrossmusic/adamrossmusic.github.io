@@ -51,11 +51,13 @@
                            Select a task
                         </span>
 
-                        <div class="recents" ng-repeat="task in tasks | limitTo: taskLimit | filter: taskSearch" ng-click="selectRecent(task)">
+                        <div class="recents" ng-repeat="task in tasks | limitTo: taskLimit | filter: taskSearch"
+                             ng-click="selectRecent(task)">
                             {{ '#' + task.ticketId + ' - ' + task.name }}
                         </div>
 
-                        <a class="show_more" ng-click="showMoreTask()" ng-hide="Object.keys(tasks).length < taskLimit">Show more</a>
+                        <a class="show_more" ng-click="showMoreTask()" ng-hide="Object.keys(tasks).length < taskLimit">Show
+                            more</a>
 
                     </div>
                 </form>
@@ -145,6 +147,63 @@
                     </tr>
                     </tfoot>
                 </table>
+                <div class="mobile_activity_list">
+                    <div class="date_and_sum">
+                        <span class="date">
+                            Current Date: {{ selectedDate }}
+                        </span>
+                        <span class="sum">
+                            SUM: 9
+                        </span>
+                    </div>
+                    <div class="activity" ng-repeat="activity in activities">
+                        <div class="wrapper">
+                            <div class="left_panel">
+                                <span class="ticket_id">TicketId: </span>
+                                <span>Project: </span>
+                                <span class="ticket_name">Ticket Name: </span>
+                                <span class="duration">Duration: </span>
+                            </div>
+                            <div class="right_panel">
+                                <span class="ticket_id">{{activity.task.ticketId}}</span>
+                                <span>{{activity.project.name}}</span>
+                                <span class="ticket_name">{{activity.task.name}}</span>
+                                <span class="duration">{{activity.duration}}</span>
+                            </div>
+                            <div class="clear"></div>
+                        </div>
+                        <div class="description">
+                            <div class="title">
+                                Description:
+                            </div>
+                            <div class="text">
+                                {{ activity.description ? activity.description : 'No description included' }}
+                            </div>
+                        </div>
+
+                        <div class="actions">
+                            <div class="delete_tooltip" ng-show="selectedIndex == $index && isInDeleteMode">
+                                <div class="title">Are you sure?</div>
+                                <div class="action">
+                                    <i class="fa fa-check-circle-o" aria-hidden="true"
+                                       ng-click="deleteItem(activity)"></i>
+                                    <i class="fa fa-times" aria-hidden="true" ng-click="closeDelete()"></i>
+                                </div>
+                            </div>
+                            <div class="modify">
+                                <i class="fa fa-pencil-square-o activity-modify-icon"
+                                   aria-hidden="true"
+                                   ng-class=""
+                                   ng-click=""></i>
+                                <b>Modify</b>
+                            </div>
+                            <div class="delete" ng-click="beginDelete(activity, $index)">
+                                <i class="fa fa-trash activity-delete-icon" aria-hidden="true"></i>
+                                <b>Delete</b>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

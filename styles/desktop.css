@@ -418,6 +418,9 @@ to prevent collapsing during animation*/
   -moz-box-shadow: 0px 1px 8px -2px #6D6D6D;
   box-shadow: 0px 1px 8px -2px #6D6D6D;
 }
+#page_list .main_wrapper .panel .mobile_activity_list {
+  display: none !important;
+}
 #page_list .main_wrapper .panel .actions-column {
   position: relative;
 }

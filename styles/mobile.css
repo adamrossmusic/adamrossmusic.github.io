@@ -313,7 +313,7 @@ to prevent collapsing during animation*/
   transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
 }
 #page_list .main_wrapper .activity_create_box .activity_form .auto_complete_result {
-  display: none!important;
+  display: none !important;
   position: absolute;
   background: #fff;
   width: 450px;
@@ -485,14 +485,22 @@ to prevent collapsing during animation*/
   margin: 16px auto 0;
 }
 #page_list .main_wrapper .panel {
+  position: relative;
+  -webkit-box-shadow: 0px 1px 8px -2px #6D6D6D;
+  -moz-box-shadow: 0px 1px 8px -2px #6D6D6D;
+  box-shadow: 0px 1px 8px -2px #6D6D6D;
+  padding-bottom: 5px;
+}
+#page_list .main_wrapper .panel table {
+  display: none !important;
   -webkit-box-shadow: 0px 1px 8px -2px #6D6D6D;
   -moz-box-shadow: 0px 1px 8px -2px #6D6D6D;
   box-shadow: 0px 1px 8px -2px #6D6D6D;
 }
-#page_list .main_wrapper .panel .actions-column {
+#page_list .main_wrapper .panel table .actions-column {
   position: relative;
 }
-#page_list .main_wrapper .panel .actions-column .delete_tooltip {
+#page_list .main_wrapper .panel table .actions-column .delete_tooltip {
   position: absolute;
   z-index: 1000;
   background: #fff;
@@ -505,10 +513,10 @@ to prevent collapsing during animation*/
   left: -25px;
   padding: 5px;
 }
-#page_list .main_wrapper .panel .actions-column .delete_tooltip .title {
+#page_list .main_wrapper .panel table .actions-column .delete_tooltip .title {
   font-size: 14px;
 }
-#page_list .main_wrapper .panel .actions-column .delete_tooltip .action .fa {
+#page_list .main_wrapper .panel table .actions-column .delete_tooltip .action .fa {
   font-size: 25px;
   padding: 3px;
   -webkit-transition: all 0.4s ease-in-out;
@@ -517,45 +525,193 @@ to prevent collapsing during animation*/
   -o-transition: all 0.4s ease-in-out;
   cursor: pointer;
 }
-#page_list .main_wrapper .panel .actions-column .delete_tooltip .action .fa.fa-check-circle-o:hover {
+#page_list .main_wrapper .panel table .actions-column .delete_tooltip .action .fa.fa-check-circle-o:hover {
   color: #64AB30;
 }
-#page_list .main_wrapper .panel .actions-column .delete_tooltip .action .fa.fa-times:hover {
+#page_list .main_wrapper .panel table .actions-column .delete_tooltip .action .fa.fa-times:hover {
   color: #AC2925;
 }
-#page_list .main_wrapper .panel .actions-column .fa {
+#page_list .main_wrapper .panel table .actions-column .fa {
   -webkit-transition: all 0.4s ease-in-out;
   -moz-transition: all 0.4s ease-in-out;
   -ms-transition: all 0.4s ease-in-out;
   -o-transition: all 0.4s ease-in-out;
 }
-#page_list .main_wrapper .panel .actions-column .fa.activity-modify-icon {
+#page_list .main_wrapper .panel table .actions-column .fa.activity-modify-icon {
   position: relative;
   font-size: 22px;
   vertical-align: middle;
 }
-#page_list .main_wrapper .panel .actions-column .fa.activity-modify-icon:hover,
-#page_list .main_wrapper .panel .actions-column .fa.activity-modify-icon.current {
+#page_list .main_wrapper .panel table .actions-column .fa.activity-modify-icon:hover,
+#page_list .main_wrapper .panel table .actions-column .fa.activity-modify-icon.current {
   color: #B3C881;
 }
-#page_list .main_wrapper .panel .actions-column .fa.activity-delete-icon {
+#page_list .main_wrapper .panel table .actions-column .fa.activity-delete-icon {
   position: relative;
   font-size: 22px;
   top: -2px;
   vertical-align: middle;
 }
-#page_list .main_wrapper .panel .actions-column .fa.activity-delete-icon:hover,
-#page_list .main_wrapper .panel .actions-column .fa.activity-delete-icon.current {
+#page_list .main_wrapper .panel table .actions-column .fa.activity-delete-icon:hover,
+#page_list .main_wrapper .panel table .actions-column .fa.activity-delete-icon.current {
+  color: #AC2925;
+}
+#page_list .main_wrapper .panel .mobile_activity_list .date_and_sum {
+  width: 100%;
+  height: 30px;
+}
+#page_list .main_wrapper .panel .mobile_activity_list .date_and_sum .date {
+  position: absolute;
+  left: 15px;
+  font-weight: bold;
+}
+#page_list .main_wrapper .panel .mobile_activity_list .date_and_sum .sum {
+  position: absolute;
+  right: 15px;
+  font-weight: bold;
+}
+#page_list .main_wrapper .panel .mobile_activity_list .activity {
+  padding: 8px 0;
+  border-bottom: 1px solid #ccc;
+}
+#page_list .main_wrapper .panel .mobile_activity_list .activity:last-child {
+  border: none;
+}
+#page_list .main_wrapper .panel .mobile_activity_list .activity .wrapper {
+  position: relative;
+}
+#page_list .main_wrapper .panel .mobile_activity_list .activity .wrapper .left_panel {
+  float: left;
+  width: 49%;
+}
+#page_list .main_wrapper .panel .mobile_activity_list .activity .wrapper .left_panel span {
+  display: block;
+  text-align: left;
+  font-weight: bold;
+  height: 45px;
+}
+#page_list .main_wrapper .panel .mobile_activity_list .activity .wrapper .left_panel span.duration,
+#page_list .main_wrapper .panel .mobile_activity_list .activity .wrapper .left_panel span.ticket_id {
+  height: 25px;
+}
+#page_list .main_wrapper .panel .mobile_activity_list .activity .wrapper .left_panel span.ticket_name {
+  height: 60px;
+}
+#page_list .main_wrapper .panel .mobile_activity_list .activity .wrapper .right_panel {
+  float: left;
+  width: 49%;
+}
+#page_list .main_wrapper .panel .mobile_activity_list .activity .wrapper .right_panel span {
+  display: block;
+  text-align: left;
+  height: 45px;
+  font-size: 13px;
+}
+#page_list .main_wrapper .panel .mobile_activity_list .activity .wrapper .right_panel span.duration,
+#page_list .main_wrapper .panel .mobile_activity_list .activity .wrapper .right_panel span.ticket_id {
+  height: 25px;
+}
+#page_list .main_wrapper .panel .mobile_activity_list .activity .wrapper .right_panel span.ticket_name {
+  height: 60px;
+}
+#page_list .main_wrapper .panel .mobile_activity_list .activity .description {
+  display: block;
+  margin: 4px auto;
+}
+#page_list .main_wrapper .panel .mobile_activity_list .activity .description .title {
+  font-weight: bold;
+}
+#page_list .main_wrapper .panel .mobile_activity_list .activity .description .text {
+  padding: 6px 0;
+  text-align: justify;
+}
+#page_list .main_wrapper .panel .mobile_activity_list .activity .actions {
+  position: relative;
+}
+#page_list .main_wrapper .panel .mobile_activity_list .activity .actions .delete_tooltip {
+  position: absolute;
+  z-index: 1000;
+  background: #fff;
+  -webkit-box-shadow: 0px 1px 8px -2px #6D6D6D;
+  -moz-box-shadow: 0px 1px 8px -2px #6D6D6D;
+  box-shadow: 0px 1px 8px -2px #6D6D6D;
+  width: 40%;
+  text-align: center;
+  top: -20px;
+  left: 50%;
+  margin-top: -100px;
+  margin-left: -20%;
+  padding: 8px;
+}
+#page_list .main_wrapper .panel .mobile_activity_list .activity .actions .delete_tooltip .title {
+  font-size: 16px;
+}
+#page_list .main_wrapper .panel .mobile_activity_list .activity .actions .delete_tooltip .action .fa {
+  font-size: 30px;
+  padding: 12px;
+  -webkit-transition: all 0.4s ease-in-out;
+  -moz-transition: all 0.4s ease-in-out;
+  -ms-transition: all 0.4s ease-in-out;
+  -o-transition: all 0.4s ease-in-out;
+  cursor: pointer;
+}
+#page_list .main_wrapper .panel .mobile_activity_list .activity .actions .delete_tooltip .action .fa.fa-check-circle-o:hover {
+  color: #64AB30;
+}
+#page_list .main_wrapper .panel .mobile_activity_list .activity .actions .delete_tooltip .action .fa.fa-times:hover {
+  color: #AC2925;
+}
+#page_list .main_wrapper .panel .mobile_activity_list .activity .actions .modify {
+  width: 48%;
+  display: inline-block;
+  vertical-align: top;
+}
+#page_list .main_wrapper .panel .mobile_activity_list .activity .actions .modify:hover,
+#page_list .main_wrapper .panel .mobile_activity_list .activity .actions .modify.current {
+  color: #B3C881;
+}
+#page_list .main_wrapper .panel .mobile_activity_list .activity .actions .delete {
+  display: inline-block;
+  vertical-align: top;
+}
+#page_list .main_wrapper .panel .mobile_activity_list .activity .actions .delete:hover,
+#page_list .main_wrapper .panel .mobile_activity_list .activity .actions .delete.current {
+  color: #AC2925;
+}
+#page_list .main_wrapper .panel .mobile_activity_list .activity .actions .fa {
+  -webkit-transition: all 0.4s ease-in-out;
+  -moz-transition: all 0.4s ease-in-out;
+  -ms-transition: all 0.4s ease-in-out;
+  -o-transition: all 0.4s ease-in-out;
+  padding-left: 10px;
+}
+#page_list .main_wrapper .panel .mobile_activity_list .activity .actions .fa.activity-modify-icon {
+  position: relative;
+  font-size: 26px;
+  vertical-align: middle;
+}
+#page_list .main_wrapper .panel .mobile_activity_list .activity .actions .fa.activity-modify-icon:hover,
+#page_list .main_wrapper .panel .mobile_activity_list .activity .actions .fa.activity-modify-icon.current {
+  color: #B3C881;
+}
+#page_list .main_wrapper .panel .mobile_activity_list .activity .actions .fa.activity-delete-icon {
+  position: relative;
+  font-size: 26px;
+  top: -2px;
+  vertical-align: middle;
+}
+#page_list .main_wrapper .panel .mobile_activity_list .activity .actions .fa.activity-delete-icon:hover,
+#page_list .main_wrapper .panel .mobile_activity_list .activity .actions .fa.activity-delete-icon.current {
   color: #AC2925;
 }
 #page_calendar .main_wrapper {
-  max-width: 1200px;
+  max-width: 600px;
   height: 100%;
 }
 #page_calendar .main_wrapper .header {
   text-align: center;
   display: block;
-  margin: 10px 0;
+  margin: 10px 0 30px;
   width: 100%;
   border-radius: 5px;
   background: #fff;
@@ -564,8 +720,9 @@ to prevent collapsing during animation*/
 }
 #page_calendar .main_wrapper .header .date {
   text-align: center;
-  font-size: 21px;
+  font-size: 16px;
   display: block;
+  padding: 6px 0;
 }
 #page_calendar .main_wrapper .header .mode_selector {
   text-align: center;
@@ -583,11 +740,9 @@ to prevent collapsing during animation*/
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
   border-radius: 5px;
-  -webkit-box-shadow: 0px 1px 8px -2px #6D6D6D;
-  -moz-box-shadow: 0px 1px 8px -2px #6D6D6D;
-  box-shadow: 0px 1px 8px -2px #6D6D6D;
 }
 #page_calendar #page_calendar_oneweek .panel_header {
+  display: none;
   width: 100%;
   text-align: center;
   border-bottom: 1px solid #ccc;
@@ -610,17 +765,13 @@ to prevent collapsing during animation*/
 #page_calendar #page_calendar_oneweek .activities .columns {
   display: inline-block;
   vertical-align: top;
-  width: 234px;
+  width: 95%;
   padding: 0 0 12px 0;
-  border-left: 1px solid #ccc;
-}
-#page_calendar #page_calendar_oneweek .activities .columns:first-child {
-  border-left: none;
 }
 #page_calendar #page_calendar_oneweek .activities .columns .column_header {
   display: block;
   height: 45px;
-  background: #76C43B;
+  background: #659A3D;
   color: #fff;
   padding-top: 5px;
 }
@@ -683,9 +834,8 @@ to prevent collapsing during animation*/
   padding-right: 6px;
 }
 #page_calendar #page_calendar_fullmonth .left_panel {
-  display: inline-block;
-  vertical-align: top;
-  width: 800px;
+  display: block;
+  width: 95%;
   background: #fff;
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
@@ -693,8 +843,10 @@ to prevent collapsing during animation*/
   -webkit-box-shadow: 0px 1px 8px -2px #6D6D6D;
   -moz-box-shadow: 0px 1px 8px -2px #6D6D6D;
   box-shadow: 0px 1px 8px -2px #6D6D6D;
+  margin: 0 auto;
 }
 #page_calendar #page_calendar_fullmonth .left_panel .panel_header {
+  display: none!important;
   width: 801px;
   text-align: center;
   margin-left: -1px;
@@ -716,14 +868,14 @@ to prevent collapsing during animation*/
   border-right: none;
 }
 #page_calendar #page_calendar_fullmonth .left_panel .calendars {
-  width: 800px;
+  width: 100%;
   text-align: center;
   padding-bottom: 12px;
 }
 #page_calendar #page_calendar_fullmonth .left_panel .calendars .one_day {
-  display: inline-block;
-  vertical-align: top;
-  width: 160px;
+  display: block;
+  width: 98%;
+  margin: 0 auto;
   border-bottom: 1px solid #ccc;
   border-left: 1px solid #ccc;
   background: #71BD38;
@@ -765,7 +917,7 @@ to prevent collapsing during animation*/
   padding: 0px 5px;
 }
 #page_calendar #page_calendar_fullmonth .right_panel {
-  display: inline-block;
+  display: none!important;
   vertical-align: top;
   width: 350px;
   background: #fff;
@@ -824,13 +976,12 @@ to prevent collapsing during animation*/
   font-style: italic;
 }
 #page_personal .main_wrapper {
-  width: 1200px;
+  max-width: 600px;
   text-align: center;
 }
 #page_personal .main_wrapper .profile_panel {
-  display: inline-block;
-  vertical-align: top;
-  width: 300px;
+  display: block;
+  width: 98%;
   background: #fff;
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
@@ -839,6 +990,7 @@ to prevent collapsing during animation*/
   -moz-box-shadow: 0px 1px 8px -2px #6D6D6D;
   box-shadow: 0px 1px 8px -2px #6D6D6D;
   padding: 9px 0;
+  margin: 10px auto;
 }
 #page_personal .main_wrapper .profile_panel .avatar {
   text-align: center;
@@ -856,10 +1008,9 @@ to prevent collapsing during animation*/
   text-align: center;
 }
 #page_personal .main_wrapper .right_panel {
-  display: inline-block;
-  vertical-align: top;
-  width: 738px;
-  margin: 0 0 0 25px;
+  display: block;
+  width: 98%;
+  margin: 0 auto 15px;
 }
 #page_personal .main_wrapper .right_panel .random_message_of_the_day {
   color: #fff;
@@ -872,21 +1023,22 @@ to prevent collapsing during animation*/
   margin-bottom: 11px;
 }
 #page_personal .main_wrapper .right_panel .random_message_of_the_day .title {
-  display: inline-block;
-  vertical-align: top;
+  display: block;
   width: 150px;
+  padding-left: 7px;
   font-size: 16px;
-  padding-top: 10px;
 }
 #page_personal .main_wrapper .right_panel .random_message_of_the_day .message {
-  display: inline-block;
-  vertical-align: top;
-  width: 515px;
+  display: block;
+  text-align: left;
   font-size: 14px;
   font-style: italic;
+  padding-left: 7px;
 }
 #page_personal .main_wrapper .right_panel .tickets_panel {
   display: block;
+  width: 98%;
+  margin: 10px auto;
   background: #fff;
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
@@ -894,9 +1046,6 @@ to prevent collapsing during animation*/
   -webkit-box-shadow: 0px 1px 8px -2px #6D6D6D;
   -moz-box-shadow: 0px 1px 8px -2px #6D6D6D;
   box-shadow: 0px 1px 8px -2px #6D6D6D;
-  height: 230px;
-  overflow: hidden;
-  overflow-y: auto;
 }
 #page_personal .main_wrapper .right_panel .tickets_panel .my_tickets {
   display: block;
@@ -914,10 +1063,10 @@ to prevent collapsing during animation*/
   font-weight: 600;
 }
 #page_personal .main_wrapper .right_panel .tickets_panel .my_tickets .headers {
+  display: none!important;
   border-bottom: 1px solid #ccc;
 }
 #page_personal .main_wrapper .right_panel .tickets_panel .my_tickets .headers span {
-  float: left;
   width: 144px;
   padding: 4px 0;
   border-left: 1px solid #ccc;
@@ -925,60 +1074,34 @@ to prevent collapsing during animation*/
 #page_personal .main_wrapper .right_panel .tickets_panel .my_tickets .headers span:first-child {
   border-left: none;
 }
-#page_personal .main_wrapper .right_panel .tickets_panel .my_tickets .headers span.project {
-  width: 120px;
-}
-#page_personal .main_wrapper .right_panel .tickets_panel .my_tickets .headers span.ticket {
-  width: 220px;
-}
-#page_personal .main_wrapper .right_panel .tickets_panel .my_tickets .headers span.description {
-  width: 225px;
-}
-#page_personal .main_wrapper .right_panel .tickets_panel .my_tickets .headers span.status {
-  width: 90px;
-}
-#page_personal .main_wrapper .right_panel .tickets_panel .my_tickets .headers span.progressbar {
-  width: 65px;
-}
 #page_personal .main_wrapper .right_panel .tickets_panel .my_tickets .tickets div {
   display: block;
-  border-bottom: 1px solid #ccc;
-  height: 35px;
 }
 #page_personal .main_wrapper .right_panel .tickets_panel .my_tickets .tickets div a {
   display: block;
+  border-bottom: 1px solid #ccc;
+  padding: 0 8px;
 }
 #page_personal .main_wrapper .right_panel .tickets_panel .my_tickets .tickets div a div {
-  float: left;
-  width: 144px;
+  display: inline-block;
   padding: 4px 0;
-  border-left: 1px solid #ccc;
   font-size: 12px;
   text-align: center;
-  vertical-align: middle;
-}
-#page_personal .main_wrapper .right_panel .tickets_panel .my_tickets .tickets div a div:first-child {
-  border-left: none;
+  width: auto;
 }
 #page_personal .main_wrapper .right_panel .tickets_panel .my_tickets .tickets div a div.project {
-  width: 120px;
+  display: block;
 }
 #page_personal .main_wrapper .right_panel .tickets_panel .my_tickets .tickets div a div.ticket {
-  width: 220px;
+  display: block;
 }
 #page_personal .main_wrapper .right_panel .tickets_panel .my_tickets .tickets div a div.description {
-  width: 225px;
-}
-#page_personal .main_wrapper .right_panel .tickets_panel .my_tickets .tickets div a div.status {
-  width: 90px;
-}
-#page_personal .main_wrapper .right_panel .tickets_panel .my_tickets .tickets div a div.progressbar {
-  width: 65px;
+  display: block;
 }
 #page_personal .main_wrapper .statistics_panel {
   margin: 20px auto;
   display: block;
-  width: 1070px;
+  width: 98%;
   background: #fff;
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
@@ -990,15 +1113,14 @@ to prevent collapsing during animation*/
   padding: 12px 20px;
 }
 #page_personal .main_wrapper .statistics_panel .stastics_list {
-  display: inline-block;
-  vertical-align: top;
-  width: 400px;
+  display: block;
+  width: 98%;
 }
 #page_personal .main_wrapper .statistics_panel .stastics_list ul {
   padding: 0;
   margin: 0;
   list-style: none;
-  width: 370px;
+  width: 100%;
 }
 #page_personal .main_wrapper .statistics_panel .stastics_list ul li {
   display: inline-block;
@@ -1023,9 +1145,9 @@ to prevent collapsing during animation*/
   display: block;
 }
 #page_personal .main_wrapper .statistics_panel .events_list {
-  display: inline-block;
+  display: block;
   vertical-align: top;
-  width: 600px;
+  width: 100%;
 }
 #page_personal .main_wrapper .statistics_panel .events_list .title {
   padding: 0 0 10px 0;
@@ -1035,6 +1157,5 @@ to prevent collapsing during animation*/
   margin: 5px 0;
 }
 #page_personal .main_wrapper .statistics_panel .events_list .event .project {
-  position: absolute;
-  right: 10px;
+  display: block;
 }
